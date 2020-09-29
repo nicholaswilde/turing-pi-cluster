@@ -37,9 +37,9 @@ Then, you can deploy _all_ the applications configured in this repository with t
   1. Make sure you have [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) installed.
   2. Install Ansible requirements:
 
-     ```
-     ansible-galaxy role install -r requirements.yml
-     ansible-galaxy collection install -r requirements.yml
+     ```bash
+     $ ansible-galaxy role install -r requirements.yml
+     $ ansible-galaxy collection install -r requirements.yml
      ```
 
      These commands can be consolidated into one `ansible-galaxy install` command once Ansible 2.10 is released.
@@ -48,8 +48,8 @@ Then, you can deploy _all_ the applications configured in this repository with t
   4. Edit the `ingress_server_ip` and `load_balancer_server_ip` in `group_vars/all.yml` and set them each to an IP address of one of the nodes. (Change any other variables in that file as necessary.)
   5. Run the playbook:
 
-     ```
-     ansible-playbook site.yml
+     ```bash
+     $ ansible-playbook site.yml
      ```
 
 Once that's done, there will be variety of applications running on your cluster, for example:
