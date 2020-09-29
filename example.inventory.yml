@@ -1,0 +1,39 @@
+---
+all:
+  children:
+    pis:
+      hosts:
+        pi-02:
+          ansible_host: 192.168.1.250
+          new_hostname: pi-02
+        pi-w:
+          ansible_host: 192.168.1.29
+          new_hostname: pi-w
+      vars:
+        ansible_user: pi
+    nodes:
+      hosts:
+        worker-02:
+          ansible_host: 192.168.1.202
+        worker-03:
+          ansible_host: 192.168.1.203
+        worker-04:
+          ansible_host: 192.168.1.204
+        worker-05:
+          ansible_host: 192.168.1.199
+        worker-06:
+          ansible_host: 192.168.1.195
+        worker-07:
+          ansible_host: 192.168.1.209
+      vars:
+        ansible_user: pirate
+    main:
+      hosts:
+        turing-main:
+          ansible_host: 192.168.1.201
+      vars:
+        ansible_user: pirate
+    k3s_cluster:
+      children:
+        main:
+        nodes:
