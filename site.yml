@@ -24,17 +24,17 @@
     - role: cluster_monitoring
       tags: ['monitoring', 'prometheus']
 
-    - role: drupal
-      tags: ['drupal']
+#    - role: drupal
+#      tags: ['drupal']
 
-    - role: wordpress
-      tags: ['wordpress']
+#    - role: wordpress
+#      tags: ['wordpress']
 
-    - role: minecraft
-      tags: ['minecraft']
+#    - role: minecraft
+#      tags: ['minecraft']
 
-    - role: pihole
-      tags: ['pihole']
+#    - role: pihole
+#      tags: ['pihole']
 
-    - role: status
-      tags: ['status', 'debug']
+#    - role: status
+#      tags: ['status', 'debug']
