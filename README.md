@@ -44,12 +44,12 @@ Then, you can deploy _all_ the applications configured in this repository with t
 
      These commands can be consolidated into one `ansible-galaxy install` command once Ansible 2.10 is released.
 
-  3. Copy the `example.hosts.ini` inventory file to `hosts.ini`. Make sure it has the `master` and `node`s configured correctly.
+  3. Copy the `example.invenotry.yml` inventory file to `inventory.ymle`. Make sure it has the `main` and `node`s configured correctly.
   4. Edit the `ingress_server_ip` and `load_balancer_server_ip` in `group_vars/all.yml` and set them each to an IP address of one of the nodes. (Change any other variables in that file as necessary.)
   5. Run the playbook:
 
      ```
-     ansible-playbook main.yml
+     ansible-playbook site.yml
      ```
 
 Once that's done, there will be variety of applications running on your cluster, for example:
@@ -91,7 +91,7 @@ Regardless of the reason, here's how to quickly wipe the cluster clean (without 
   1. In the `k3s-ansible` repository directory (which you used to set up the cluster), run:
 
      ```
-     ansible-playbook -i inventory/hosts.ini reset.yml
+     ansible-playbook -i inventory.yml reset.yml
      ```
 
      This command will likely have a few failures relating to files that can't be cleaned up until after a reboot.
@@ -99,19 +99,19 @@ Regardless of the reason, here's how to quickly wipe the cluster clean (without 
   2. Reboot the Raspberry Pis (in the same directory):
 
      ```
-     ansible -i inventory/hosts.ini all -m reboot -b
+     ansible -i inventory.yml all -m reboot -b
      ```
 
   3. Run the reset playbook a second time, to clean up the stragglers:
 
      ```
-     ansible-playbook -i inventory/hosts.ini reset.yml
+     ansible-playbook -i inventory.yml reset.yml
      ```
 
   4. Re-install K3s on the cluster:
 
      ```
-     ansible-playbook -i inventory/hosts.ini site.yml
+     ansible-playbook -i inventory.yml site.yml
      ```
 
 Now you can go back to the steps above under 'Usage' to set up applications inside the cluster!
