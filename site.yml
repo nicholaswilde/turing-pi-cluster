@@ -1,6 +1,6 @@
 ---
 - name: Deploy Kubernetes resources via master node.
-  hosts: main
+  hosts: turing-main
   gather_facts: false
 
   collections:
@@ -18,9 +18,11 @@
     - role: cluster_monitoring
       tags: ['monitoring', 'prometheus']
 
-    - role: infothrill.rpi_boot_config
-      boot_config_lines: ['gpu_mem=16'] 
-      tags: ['rpi_boot_config']
+    - name: Turning on power LED
+      role: infothrill.rpi_boot_config
+      boot_config_lines:
+      - gpio=17=op,dh
+      tags: ['turing-main_boot_config']
 
 #    - role: drupal
 #      tags: ['drupal']
@@ -36,3 +38,15 @@
 
 #    - role: status
 #      tags: ['status', 'debug']
+
+- name: Deploy I2C
+  hosts: k3s_cluster
+
+  roles:
+    - name: Turning on I2C
+      role: infothrill.rpi_boot_config
+      boot_config_lines: 
+      - dtoverlay=i2c1,pins_44_45
+      - dtoverlay=i2c-rtc,mcp7940x
+      - gpu_mem=16
+      tags: ['cluster_boot_config']
