@@ -1,3 +1,5 @@
 hosts.ini
 ansible_collections
 roles/geerlingguy.*
+roles/infothrill.*
+inventory.yml

@@ -2,6 +2,8 @@
 roles:
   - name: geerlingguy.helm
     version: 1.0.0
+  - name: infothrill.rpi_boot_config
+    version: 4.0.0
 
 collections:
   - name: community.kubernetes

@@ -1,11 +1,11 @@
 ---
-- name: Ensure apt caches are up to date.
+- name: Ensuring apt caches are up to date.
   apt:
     update_cache: true
     cache_valid_time: 3600
   become: true
 
-- name: Ensure required dependencies are installed.
+- name: Ensuring required dependencies are installed.
   package:
     name:
       - python3-pip
@@ -13,10 +13,11 @@
       - build-essential
       - golang
       - git
+      - i2c-tools
     state: present
   become: true
 
-- name: Ensure openshift Python library is installed.
+- name: Ensuring openshift Python library is installed.
   pip:
     name: openshift
     state: present
