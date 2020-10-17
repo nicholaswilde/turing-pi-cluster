@@ -13,6 +13,7 @@
       - build-essential
       - golang
       - git
+      - jq
     state: present
   become: true
 
