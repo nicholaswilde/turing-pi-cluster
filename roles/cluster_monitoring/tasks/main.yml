@@ -18,6 +18,12 @@
         src: vars.jsonnet.j2
         dest: ~/cluster-monitoring/vars.jsonnet
 
+    - name: Place our templated base_operator_stack.jsonnet file.
+      template:
+        src: base_operator_stack.jsonnet.j2
+        dest: ~/cluster-monitoring/base_operator_stack.jsonnet
+      when: unifi_poller | bool
+
     - name: Run 'vendor' cluster-monitoring target.
       make:
         chdir: ~/cluster-monitoring
@@ -27,6 +33,13 @@
       make:
         chdir: ~/cluster-monitoring
 
+    - name: Copy unifi-poller dashboards
+      copy:
+        src: "{{ item }}"
+        dest: ~/cluster-monitoring/grafana-dashboards/{{ item | basename | regex_replace('.j2','') }}
+      with_fileglob:
+        - files/*.json.j2
+      when: unifi_poller | bool
   become: false
   when: >
     not vars_file_exists.stat.exists
