@@ -1,4 +1,11 @@
 ---
+- name: Create monitoring namespace.
+  k8s:
+    name: "{{ monitoring_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+
 - name: Add k8s-at-home chart repo.
   helm_repository:
     name: k8s-at-home
@@ -9,7 +16,7 @@
     name: unifi-poller
     chart_ref: k8s-at-home/unifi-poller
     chart_version: '2.0.1'
-    release_namespace: monitoring
+    release_namespace: "{{ monitoring_namespace }}"
     state: present
     values:
       prometheus:
@@ -22,9 +29,9 @@
           dynamic: false
           defaults:
             role: "main controller"
-            user: "unifipoller"
-            pass: "NLsf3#R7zt9!"
-            url: "https://192.168.1.148:8443"
+            user: "{{ unifi_user }}"
+            pass: "{{ unifi_pass }}"
+            url: "{{ unifi_url }}"
             sites:
               - all
             verify_ssl: false

@@ -10,7 +10,6 @@ cluster_monitoring_update_repo: true
 grafana_from_email: ncwilde43@gmail.com
 
 # Should we install unifi-poller and dashboards
-unifi_poller: true
 
 grafana_dashboards:
   - dashboard_id: 11315

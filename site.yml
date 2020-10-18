@@ -9,6 +9,10 @@
   hosts: master
   gather_facts: false
 
+  vars:
+    unifi_poller: true
+    monitoring_namespace: monitoring
+
   collections:
     - community.kubernetes
 
@@ -21,17 +25,12 @@
     - role: setup
       tags: ['setup']
 
+    - role: unifi_poller
+      tags: ['unifi-poller']
+      when: unifi_poller | bool
+
     - role: cluster_monitoring
       tags: ['monitoring', 'prometheus']
-
-#    - role: drupal
-#      tags: ['drupal']
-
-#    - role: wordpress
-#      tags: ['wordpress']
-
-#    - role: minecraft
-#      tags: ['minecraft']
 
 #    - role: pihole
 #      tags: ['pihole']
