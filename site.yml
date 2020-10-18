@@ -7,7 +7,7 @@
 
 - name: Deploy Kubernetes resources via master node.
   hosts: master
-  gather_facts: true
+  gather_facts: false
 
   collections:
     - community.kubernetes

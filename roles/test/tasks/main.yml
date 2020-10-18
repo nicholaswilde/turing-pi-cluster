@@ -1,0 +1,34 @@
+---
+- name: test
+  block:
+    - name: Create local grafana dashboard directory
+      tempfile:
+        state: directory
+      register: _tmp_dashboards
+      changed_when: false
+      check_mode: false
+
+    - name: Download grafana dashboard from grafana.net to local directory
+      command: >
+        curl --fail --compressed
+        https://grafana.com/api/dashboards/{{ item.dashboard_id }}/revisions/{{ item.revision_id }}/download
+        -o {{ _tmp_dashboards.path }}/{{ item.dashboard_id }}.json
+      args:
+        creates: "{{ _tmp_dashboards.path }}/{{ item.dashboard_id }}.json"
+        warn: false
+      register: _download_dashboards
+      until: _download_dashboards is succeeded
+      retries: 5
+      delay: 2
+      with_items: "{{ grafana_dashboards }}"
+      when: grafana_dashboards | length > 0 and unifi_poller
+      changed_when: false
+      check_mode: false
+      tags:
+        - skip_ansible_lint
+
+    - name: Place our templated base_operator_stack.jsonnet file.
+      template:
+        src: base_operator_stack.jsonnet.j2
+        dest: "{{ _tmp_dashboards.path }}/base_operator_stack.jsonnet"
+      when: unifi_poller
