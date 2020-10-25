@@ -1,0 +1,5 @@
+---
+image:
+  repository: oznu/homebridge
+  pullPolicy: IfNotPresent
+  tag: "latest"
