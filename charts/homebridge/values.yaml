@@ -3,3 +3,5 @@ image:
   repository: oznu/homebridge
   pullPolicy: IfNotPresent
   tag: "latest"
+
+timezone: "America/Los_Angeles"
