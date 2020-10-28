@@ -2,8 +2,8 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: homebridge-pvc
-  namespace: homebridge
+  name: nextcloud-pvc
+  namespace: nextcloud
 spec:
   selector:
     matchLabels:

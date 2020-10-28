@@ -1,8 +1,7 @@
----
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: homebridge-pv-nfs
+  name: pv-nfs2
   labels:
     bucket: shared
 spec:
@@ -13,4 +12,4 @@ spec:
     - ReadWriteMany
   nfs:
     server: 192.168.1.192
-    path: "/home/pi/nas/homebridge"
+    path: "/home/pi/nas"

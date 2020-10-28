@@ -1,0 +1,21 @@
+---
+image:
+  repository: nextcloud
+  tag: latest
+  pullPolicy: IfNotPresent
+
+nextcloud:
+  host: "nextcloud.192.168.1.202.nip.io"
+  username: pirate
+  password: hypriot
+  persistence:
+    subPath: nextcloud
+
+persistence:
+  enabled: true
+  existingClaim: "nextcloud-pvc"
+  accessMode: ReadWriteMany
+  size: "50Gi"
+
+ingress:
+  enabled: true

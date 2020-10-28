@@ -10,7 +10,7 @@
   gather_facts: false
 
   vars:
-    unifi_poller: true
+    unifi_poller: false
     monitoring_namespace: monitoring
 
   collections:
@@ -23,14 +23,23 @@
 
   roles:
     - role: setup
-      tags: ['setup']
+      tags:
+      - setup
+      - homebridge
+      - transmission
 
     - role: unifi_poller
       tags: ['unifi-poller']
       when: unifi_poller | bool
 
-    - role: cluster_monitoring
-      tags: ['monitoring', 'prometheus']
+#    - role: cluster_monitoring
+#      tags: ['monitoring', 'prometheus']
+
+    - role: homebridge
+      tags: ['homebridge']
+
+    - role: transmission
+      tags: ['transmission']
 
 #    - role: pihole
 #      tags: ['pihole']

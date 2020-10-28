@@ -1,0 +1,20 @@
+---
+- name: Create transmission namespace.
+  k8s:
+    name: transmission
+    api_version: v1
+    kind: Namespace
+    state: present
+
+- name: Apply all transmission manifests.
+  k8s:
+    definition: "{{ lookup('template', 'templates/' + item ) }}"
+    state: present
+  loop:
+    - pv.yaml
+    - pvc.yaml
+    - configMap.yaml
+    - secret.yaml
+    - service.yaml
+    - deployment.yaml
+    - ingress.yaml

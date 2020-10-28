@@ -15,7 +15,7 @@
   helm:
     name: unifi-poller
     chart_ref: k8s-at-home/unifi-poller
-    chart_version: '2.0.1'
+    chart_version: 2.0.1
     release_namespace: "{{ monitoring_namespace }}"
     state: present
     values:

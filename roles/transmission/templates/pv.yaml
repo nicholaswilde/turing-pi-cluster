@@ -12,9 +12,9 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   accessModes:
     - ReadWriteMany
-   claimRef:
-     namespace: transmission
-     name: transmission-pvc
+  claimRef:
+    namespace: transmission
+    name: transmission-pvc
   nfs:
     server: {{ nfs_server_ip }}
     path: "/home/pi/nas/transmission"

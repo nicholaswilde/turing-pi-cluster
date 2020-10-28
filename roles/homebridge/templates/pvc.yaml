@@ -11,9 +11,9 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   accessModes:
     - ReadWriteMany
-   claimRef:
-     namespace: homebridge
-     name: homebridge-pvc
+  claimRef:
+    namespace: homebridge
+    name: homebridge-pvc
   nfs:
     server: {{ nfs_server_ip }}
     path: {{ homebridge_nfs_path }}

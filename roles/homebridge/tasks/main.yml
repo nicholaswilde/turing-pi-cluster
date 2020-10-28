@@ -1,0 +1,55 @@
+---
+- name: Create homebridge namespace.
+  k8s:
+    name: homebridge
+    api_version: v1
+    kind: Namespace
+    state: present
+
+- name: Apply pv and pvc manifests.
+  k8s:
+    definition: "{{ lookup('template', 'templates/' + item ) }}"
+    state: present
+  loop:
+    - pvc.yaml
+
+- name: Add k8s-at-home chart repo.
+  helm_repository:
+    name: k8s-at-home
+    repo_url: "https://k8s-at-home.com/charts/"
+
+- name: Deploy homebridge Helm chart.
+  helm:
+    name: homebridge
+    chart_ref: k8s-at-home/homebridge
+    chart_version: '{{ homebridge_chart_version }}'
+    release_namespace: homebridge
+    state: present
+    values:
+      image:
+        repository: oznu/homebridge
+        pullPolicy: IfNotPresent
+        tag: "latest"
+      timezone: "{{ timezone }}"
+      config:
+        enableUI: true
+        plugins:
+        - homebridge-presence-switch-msgraph
+      ingress:
+        enabled: true
+        hosts:
+        - 'homebridge.{{ ingress_server_ip }}.nip.io'
+      persistence:
+        enabled: true
+        existingClaim: homebridge-pvc
+      probes:
+        liveness:
+          enabled: true
+          initialDelaySeconds: 2400
+          failureThreshold: 5
+          timeoutSeconds: 10
+        readiness:
+          enabled: true
+          initialDelaySeconds: 2400
+          failureThreshold: 5
+          timeoutSeconds: 10

@@ -48,7 +48,7 @@
   },
 
   // Domain suffix for the ingresses
-  suffixDomain: '{{ groups['node'][0] }}.nip.io',
+  suffixDomain: '{{ ingress_server_ip }}.nip.io',
   // If TLSingress is true, a self-signed HTTPS ingress with redirect will be created
   TLSingress: true,
   // If UseProvidedCerts is true, provided files will be used on created HTTPS ingresses.
@@ -60,11 +60,11 @@
   // Persistent volume configuration
   enablePersistence: {
     // Setting these to false, defaults to emptyDirs.
-    prometheus: false,
-    grafana: false,
+    prometheus: true,
+    grafana: true,
     // If using a pre-created PV, fill in the names below. If blank, they will use the default StorageClass
-    prometheusPV: '',
-    grafanaPV: '',
+    prometheusPV: 'prometheus-pv-nfs',
+    grafanaPV: 'grafana-pv-nfs',
     // If required to use a specific storageClass, keep the PV names above blank and fill the storageClass name below.
     storageClass: '',
     // Define the PV sizes below

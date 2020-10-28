@@ -15,7 +15,7 @@
   helm:
     name: pihole
     chart_ref: mojo2600/pihole
-    chart_version: '1.7.6'
+    chart_version: '{{ pihole_chart_version }}'
     release_namespace: pihole
     state: present
     values:

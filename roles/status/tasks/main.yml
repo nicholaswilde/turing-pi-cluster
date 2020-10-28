@@ -6,11 +6,28 @@
     namespace: monitoring
   register: monitoring_ingress
 
+- name: Get Ingress records from homebridge namespace.
+  k8s_info:
+    api_version: extensions/v1beta1
+    kind: Ingress
+    namespace: homebridge
+  register: homebridge_ingress
+
+- name: Get Ingress records from transmission namespace.
+  k8s_info:
+    api_version: extensions/v1beta1
+    kind: Ingress
+    namespace: transmission
+  register: transmission_ingress
+
+
 - name: Print relevant addresses.
   debug:
     msg:
       - "http://{{ monitoring_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
       - "http://{{ monitoring_ingress['resources'][1]['spec']['rules'][0]['host'] }}/"
       - "http://{{ monitoring_ingress['resources'][2]['spec']['rules'][0]['host'] }}/"
+      - "http://{{ homebridge_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
+      - "http://{{ transmission_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
       - "Pi-hole: http://pi.hole/ (add record for {{ load_balancer_server_ip }} to /etc/hosts)"
   tags: ['debug']

@@ -4,13 +4,13 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/whitelist-source-range: 192.168.1.0/24
-  name: transmission
-  namespace: transmission
+  name: nextcloud
+  namespace: nextcloud
 spec:
   rules:
-  - host: transmission.192.168.1.202.nip.io
+  - host: ingress.192.168.1.202.nip.io
     http:
       paths:
       - backend:
-          serviceName: transmission
-          servicePort: 9091
+          serviceName: nextcloud
+          servicePort: 8080
