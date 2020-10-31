@@ -36,7 +36,7 @@ spec:
     args:
     - prepare
     - server-plan
-    image: rancher/k3s-upgrade:v1.17.4-k3s1
+    image: rancher/k3s-upgrade:v1.19.3-k3s2
   serviceAccountName: system-upgrade
   upgrade:
     image: rancher/k3s-upgrade
