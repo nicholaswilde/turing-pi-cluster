@@ -6,7 +6,7 @@ metadata:
   namespace: monitoring
 spec:
   rules:
-  - host: unifi-poller.192.168.1.202.nip.io
+  - host: unifi-poller.192.168.1.201.nip.io
     http:
       paths:
       - backend:
@@ -15,4 +15,4 @@ spec:
         path: /
   tls:
   - hosts:
-    - unifi-poller.192.168.1.202.nip.io
+    - unifi-poller.192.168.1.201.nip.io
