@@ -34,11 +34,11 @@
       config:
         enableUI: true
         plugins:
-        - homebridge-presence-switch-msgraph
+          - homebridge-presence-switch-msgraph
       ingress:
         enabled: true
         hosts:
-        - 'homebridge.{{ ingress_server_ip }}.nip.io'
+          - 'homebridge.{{ ingress_server_ip }}.nip.io'
       persistence:
         enabled: true
         existingClaim: homebridge-pvc

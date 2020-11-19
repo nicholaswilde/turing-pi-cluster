@@ -15,8 +15,8 @@ spec:
     namespace: homebridge
     name: homebridge-pvc
   nfs:
-    server: {{ nfs_server_ip }}
-    path: {{ homebridge_nfs_path }}
+    server: '{{ nfs_server_ip }}'
+    path: '{{ homebridge_nfs_path }}'
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -33,4 +33,3 @@ spec:
   resources:
     requests:
       storage: 1T
-

@@ -24,22 +24,25 @@
   roles:
     - role: setup
       tags:
-      - setup
-      - homebridge
-      - transmission
+        - setup
+        - homebridge
+        - transmission
 
     - role: unifi_poller
       tags: ['unifi-poller']
       when: unifi_poller | bool
 
-#    - role: cluster_monitoring
-#      tags: ['monitoring', 'prometheus']
+    - role: cluster_monitoring
+      tags: ['monitoring', 'prometheus']
 
     - role: homebridge
       tags: ['homebridge']
 
     - role: transmission
       tags: ['transmission']
+
+    - role: installer
+      tags: ['installer']
 
 #    - role: pihole
 #      tags: ['pihole']

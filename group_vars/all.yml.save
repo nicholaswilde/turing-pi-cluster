@@ -4,14 +4,11 @@ ansible_user: pirate
 
 # Set to 'arm64' for a 64-bit OS, or 'arm' for 32-bit.
 helm_arch: arm
-pihole_chart_version: 1.7.19
-homebridge_chart_version: 1.0.1
-unifi_poller_chart_version: 2.0.1
-installer_chart_version: 0.1.4
+chart_version
 
 # Turing Pi.
-ingress_server_ip: 192.168.1.201
-load_balancer_server_ip: 192.168.1.201
+ingress_server_ip: 192.168.1.202
+load_balancer_server_ip: 192.168.1.202
 # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone: "America/Los_Angeles"
 
@@ -19,3 +16,6 @@ timezone: "America/Los_Angeles"
 nfs_server_ip: 192.168.1.192
 homebridge_nfs_path: "/home/pi/nas/homebridge"
 transmission_nfs_path: "/home/pi/nas"
+
+
+

@@ -8,9 +8,9 @@ metadata:
   namespace: transmission
 spec:
   rules:
-  - host: 'transmission.{{ ingress_server_ip }}.nip.io'
-    http:
-      paths:
-      - backend:
-          serviceName: transmission
-          servicePort: 9091
+    - host: 'transmission.{{ ingress_server_ip }}.nip.io'
+      http:
+        paths:
+          - backend:
+            serviceName: transmission
+            servicePort: 9091

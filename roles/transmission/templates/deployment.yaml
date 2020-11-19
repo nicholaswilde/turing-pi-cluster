@@ -27,41 +27,41 @@ spec:
         io.kompose.service: transmission
     spec:
       containers:
-      - envFrom:
-        - configMapRef:
-            name: transmission-config
-            optional: false
-        - secretRef:
-            name: transmission-creds
-            optional: false
-        image: linuxserver/transmission:arm32v7-latest
-        imagePullPolicy: ""
-        name: transmission
-        ports:
-        - containerPort: 9091
-        - containerPort: 51413
-        - containerPort: 51413
-          protocol: UDP
-        resources: {}
-        volumeMounts:
-        - name: config
-          mountPath: /config
-        - name: downloads
-          mountPath: /downloads
-        - name: watch
-          mountPath: /watch
+        - envFrom:
+            - configMapRef:
+                name: transmission-config
+                optional: false
+            - secretRef:
+                name: transmission-creds
+                optional: false
+          image: linuxserver/transmission:arm32v7-latest
+          imagePullPolicy: ""
+          name: transmission
+          ports:
+            - containerPort: 9091
+            - containerPort: 51413
+            - containerPort: 51413
+              protocol: UDP
+          resources: {}
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: downloads
+              mountPath: /downloads
+            - name: watch
+              mountPath: /watch
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
-      - name: config
-        hostPath: 
-          path: /config
-          type: ""
-      - name: downloads
-        persistentVolumeClaim:
-          claimName: transmission-pvc
-      - name: watch
-        hostPath:
-          path: /watch
-          type: ""
+        - name: config
+          hostPath:
+            path: /config
+            type: ""
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: transmission-pvc
+        - name: watch
+          hostPath:
+            path: /watch
+            type: ""
 status: {}

@@ -16,5 +16,5 @@ spec:
     namespace: transmission
     name: transmission-pvc
   nfs:
-    server: {{ nfs_server_ip }}
+    server: '{{ nfs_server_ip }}'
     path: "/home/pi/nas/transmission"
