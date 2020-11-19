@@ -26,6 +26,7 @@
         enabled: true
         hosts:
           - host: 'installer.{{ load_balancer_server_ip }}.nip.io'
+            paths: [/]
       resources:
         limits:
           cpu: 200m
