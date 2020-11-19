@@ -6,15 +6,33 @@
     kind: Namespace
     state: present
 
-- name: Apply all transmission manifests.
-  k8s:
-    definition: "{{ lookup('template', 'templates/' + item ) }}"
+- name: Add nicholaswilde chart repo.
+  helm_repository:
+    name: nicholaswilde
+    repo_url: "https://nicholaswilde.github.io/helm-charts/"
+
+- name: Deploy transmission Helm chart.
+  helm:
+    name: transmission
+    chart_ref: nicholaswilde/transmission
+    chart_version: '{{ transmission_chart_version }}'
+    release_namespace: transmission
+    update_repo_cache: yes
     state: present
-  loop:
-    - pv.yaml
-    - pvc.yaml
-    - configMap.yaml
-    - secret.yaml
-    - service.yaml
-    - deployment.yaml
-    - ingress.yaml
+    values:
+      persistence:
+        downloads:
+          enabled: true
+          storageClass: "managed-nfs-storage"
+      ingress:
+        enabled: true
+        hosts:
+          - host: 'transmission.{{ load_balancer_server_ip }}.nip.io'
+            paths: [/]
+      resources:
+        limits:
+          cpu: 200m
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
