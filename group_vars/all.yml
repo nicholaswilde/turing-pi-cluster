@@ -7,8 +7,8 @@ helm_arch: arm
 pihole_chart_version: 1.7.20
 homebridge_chart_version: 1.0.2
 unifi_poller_chart_version: 3.0.0
-installer_chart_version: 0.1.4
-transmission_chart_version: 0.1.4
+installer_chart_version: 0.1.5
+transmission_chart_version: 0.1.5
 
 # Turing Pi.
 ingress_server_ip: 192.168.1.201
