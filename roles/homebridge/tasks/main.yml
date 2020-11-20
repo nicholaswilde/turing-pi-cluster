@@ -6,12 +6,12 @@
     kind: Namespace
     state: present
 
-- name: Apply pv and pvc manifests.
-  k8s:
-    definition: "{{ lookup('template', 'templates/' + item ) }}"
-    state: present
-  loop:
-    - pvc.yaml
+#- name: Apply pv and pvc manifests.
+#  k8s:
+#    definition: "{{ lookup('template', 'templates/' + item ) }}"
+#    state: present
+#  loop:
+#    - pvc.yaml
 
 - name: Add k8s-at-home chart repo.
   helm_repository:
@@ -41,7 +41,7 @@
           - 'homebridge.{{ ingress_server_ip }}.nip.io'
       persistence:
         enabled: true
-        existingClaim: homebridge-pvc
+        storageClass: "managed-nfs-storage"
       probes:
         liveness:
           enabled: true
