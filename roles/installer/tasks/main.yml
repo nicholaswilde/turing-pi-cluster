@@ -15,7 +15,7 @@
   helm:
     name: installer
     chart_ref: nicholaswilde/installer
-    chart_version: '{{ installer_chart_version }}'
+    chart_version: "{{ installer_chart_version }}"
     release_namespace: installer
     update_repo_cache: yes
     state: present
@@ -25,7 +25,7 @@
       ingress:
         enabled: true
         hosts:
-          - host: 'installer.{{ load_balancer_server_ip }}.nip.io'
+          - host: "installer.{{ ingress_server_ip }}.nip.io"
             paths: [/]
       resources:
         limits:

@@ -20,14 +20,17 @@
     update_repo_cache: yes
     state: present
     values:
+      config:
+        transmission_web_home: "/kettu/"
+        tz: "{{ timezone }}"
       persistence:
         downloads:
           enabled: true
-          storageClass: "managed-nfs-storage"
+          storageClass: "{{ storage_class }}"
       ingress:
         enabled: true
         hosts:
-          - host: 'transmission.{{ load_balancer_server_ip }}.nip.io'
+          - host: "transmission.{{ ingress_server_ip }}.nip.io"
             paths: [/]
       resources:
         limits:
