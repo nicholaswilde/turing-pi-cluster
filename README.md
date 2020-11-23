@@ -1,6 +1,5 @@
 # Turing Pi Cluster - 7-node K3s Raspberry Pi Cluster
-
-[![CI](https://github.com/geerlingguy/turing-pi-cluster/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/geerlingguy/turing-pi-cluster/actions?query=workflow%3ACI)
+[![CI](https://github.com/nicholaswilde/turing-pi-cluster/workflows/CI/badge.svg?branch=main&event=push)](https://github.com/nicholaswilde/turing-pi-cluster/actions?query=workflow%3ACI) ![GitHub](https://img.shields.io/github/license/nicholaswilde/turing-pi-cluster)
 
 <p align="center"><a href="https://www.youtube.com/watch?v=kgVz4-SEhbE"><img src="images/turing-pi-cluster-hero.jpg?raw=true" width="500" height="auto" alt="Turing Pi - Raspberry Pi Compute Module Cluster" /></a></p>
 
@@ -61,9 +60,6 @@ Once that's done, there will be variety of applications running on your cluster,
 | Prometheus | http://prometheus.10.0.100.74.nip.io/ | N/A |
 | AlertManager | http://alertmanager.10.0.100.74.nip.io/ | N/A |
 | Grafana | http://grafana.10.0.100.74.nip.io/ | Default login is `admin`/`admin` |
-| Drupal | http://drupal.10.0.100.74.nip.io/ | N/A |
-| Wordpress | http://wordpress.10.0.100.74.nip.io/ | N/A |
-| Minecraft | (`kubectl get service -n minecraft`) | See EULA in [Minecraft chart repo](https://github.com/helm/charts/tree/master/stable/minecraft) |
 | Pi-hole | http://pi.hole/ | See [pihole role README](roles/pihole/README.md) |
 
 The exact URLs will vary in your cluster; refer to the output of the Ansible playbook, which lists each service's exact URL.
