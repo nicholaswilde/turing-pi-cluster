@@ -44,8 +44,14 @@
     - role: installer
       tags: ['installer']
 
+    - role: gotify
+      tags: ['gotify']
+
+    - role: diun
+      tags: ['diun']
+
 #    - role: pihole
 #      tags: ['pihole']
 
-#    - role: status
-#      tags: ['status', 'debug']
+    - role: status
+      tags: ['status', 'debug']
