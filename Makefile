@@ -29,10 +29,12 @@ sync:
 geting:
 	kubectl get all -n kube-system | grep '^service/traefik ' | awk '{print $$4}'
 
-## getvers		: Get the github versions
+## getvers	: Get the github versions
 getvers:
 	helm search repo nicholaswilde/installer && \
 	helm search repo nicholaswilde/transmission && \
+	helm search repo nicholaswilde/diun && \
+	helm search repo nicholaswilde/gotify && \
 	helm search repo k8s-at-home/unifi-poller && \
 	helm search repo k8s-at-home/homebridge && \
 	helm search repo mojo2600/pihole

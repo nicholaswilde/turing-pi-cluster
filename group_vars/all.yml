@@ -1,6 +1,7 @@
 ---
 # Set to 'pi' for Raspberry Pi OS, or 'pirate' for HypriotOS.
 ansible_user: pirate
+master_ip: "{{ hostvars[groups['master'][0]]['ansible_host'] | default(groups['master'][0]) }}"
 
 # Set to 'arm64' for a 64-bit OS, or 'arm' for 32-bit.
 helm_arch: arm
