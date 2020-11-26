@@ -7,7 +7,7 @@ master_ip: "{{ hostvars[groups['master'][0]]['ansible_host'] | default(groups['m
 helm_arch: arm
 pihole_chart_version: 1.7.20
 homebridge_chart_version: 1.0.2
-unifi_poller_chart_version: 3.0.0
+unifi_poller_chart_version: 3.2.1
 installer_chart_version: 0.1.5
 transmission_chart_version: 0.1.5
 diun_chart_version: 0.1.0
