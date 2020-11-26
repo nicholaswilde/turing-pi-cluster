@@ -50,8 +50,13 @@
     - role: diun
       tags: ['diun']
 
+    - role: booksonic
+      tags: ['booksonic']
+
 #    - role: pihole
 #      tags: ['pihole']
 
     - role: status
-      tags: ['status', 'debug']
+      tags:
+        - 'status'
+        - 'debug'

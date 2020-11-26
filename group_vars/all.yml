@@ -12,6 +12,7 @@ installer_chart_version: 0.1.5
 transmission_chart_version: 0.1.5
 diun_chart_version: 0.1.0
 gotify_chart_version: 0.1.5
+booksonic_chart_version: 0.1.0
 
 # Turing Pi.
 ingress_server_ip: 192.168.1.201

@@ -1,0 +1,49 @@
+---
+- name: Create booksonic namespace.
+  k8s:
+    name: booksonic
+    api_version: v1
+    kind: Namespace
+    state: present
+
+- name: Add nicholaswilde chart repo.
+  helm_repository:
+    name: nicholaswilde
+    repo_url: "https://nicholaswilde.github.io/helm-charts/"
+
+- name: Deploy booksonic Helm chart.
+  helm:
+    name: booksonic
+    chart_ref: nicholaswilde/booksonic
+    chart_version: '{{ booksonic_chart_version }}'
+    release_namespace: booksonic
+    update_repo_cache: yes
+    state: present
+    values:
+      config:
+        TZ: "{{ timezone }}"
+      persistence:
+        config:
+          enabled: true
+          storageClass: "{{ storage_class }}"
+        audiobooks:
+          enabled: true
+          storageClass: "{{ storage_class }}"
+        podcasts:
+          enabled: true
+          storageClass: "{{ storage_class }}"
+        othermedia:
+          enabled: true
+          storageClass: "{{ storage_class }}"
+      ingress:
+        enabled: true
+        hosts:
+          - host: "booksonic.{{ ingress_server_ip }}.nip.io"
+            paths: [/]
+      resources:
+        limits:
+          cpu: 200m
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
