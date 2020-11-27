@@ -64,6 +64,17 @@ Once that's done, there will be variety of applications running on your cluster,
 
 The exact URLs will vary in your cluster; refer to the output of the Ansible playbook, which lists each service's exact URL.
 
+### Pre-commit hook
+
+If you want to automatically generate `README.md` files with a pre-commit hook, make sure you
+[install the pre-commit binary](https://pre-commit.com/#install), and add a [.pre-commit-config.yaml file](./.pre-commit-config.yaml)
+to your project. Then run:
+
+```bash
+pre-commit install
+pre-commit install-hooks
+```
+
 ## Caveats
 
 They are a'plenty.
