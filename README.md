@@ -1,5 +1,7 @@
 # Turing Pi Cluster - 7-node K3s Raspberry Pi Cluster
-[![CI](https://github.com/nicholaswilde/turing-pi-cluster/workflows/CI/badge.svg?branch=main&event=push)](https://github.com/nicholaswilde/turing-pi-cluster/actions?query=workflow%3ACI) ![GitHub](https://img.shields.io/github/license/nicholaswilde/turing-pi-cluster)
+[![GitHub](https://img.shields.io/github/license/nicholaswilde/turing-pi-cluster)](https://github.com/nicholaswilde/turing-pi-cluster/blob/main/README.md)
+[![CI](https://github.com/nicholaswilde/turing-pi-cluster/workflows/CI/badge.svg?branch=main&event=push)](https://github.com/nicholaswilde/turing-pi-cluster/actions?query=workflow%3ACI)
+[![Ansible Lint](https://github.com/nicholaswilde/turing-pi-cluster/workflows/Ansible%20Lint/badge.svg?branch=main)](https://github.com/nicholaswilde/turing-pi-cluster/actions?query=workflow%3A%22Ansible+Lint%22)
 
 <p align="center"><a href="https://www.youtube.com/watch?v=kgVz4-SEhbE"><img src="images/turing-pi-cluster-hero.jpg?raw=true" width="500" height="auto" alt="Turing Pi - Raspberry Pi Compute Module Cluster" /></a></p>
 
