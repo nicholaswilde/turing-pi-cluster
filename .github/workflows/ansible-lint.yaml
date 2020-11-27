@@ -7,9 +7,7 @@ name: Ansible Lint
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     # Important: This sets up your GITHUB_WORKSPACE environment variable
     - uses: actions/checkout@v2
@@ -25,7 +23,8 @@ jobs:
         # targets: |
         #   playbook_1.yml
         #   playbook_2.yml
-        targets: "site.yml"
+        targets: |
+          site.yml
         # [optional]
         # Arguments to override a package and its version to be set explicitly.
         # Must follow the example syntax.
