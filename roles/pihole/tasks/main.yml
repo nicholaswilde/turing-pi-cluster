@@ -7,12 +7,12 @@
     state: present
 
 - name: Add mojo2600 chart repo.
-  helm_repository:
+  kubernetes.core.helm_repository:
     name: mojo2600
     repo_url: "https://mojo2600.github.io/pihole-kubernetes/"
 
 - name: Deploy pihole Helm chart.
-  helm:
+  kubernetes.core.helm:
     name: pihole
     chart_ref: mojo2600/pihole
     chart_version: '{{ pihole_chart_version }}'

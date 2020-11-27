@@ -17,11 +17,13 @@
       template:
         src: vars.jsonnet.j2
         dest: ~/cluster-monitoring/vars.jsonnet
+        mode: 0755
 
     - name: Place our templated base_operator_stack.jsonnet file.
       template:
         src: base_operator_stack.jsonnet.j2
         dest: ~/cluster-monitoring/base_operator_stack.jsonnet
+        mode: 0755
       when: unifi_poller | bool
 
     - name: Run 'vendor' cluster-monitoring target.

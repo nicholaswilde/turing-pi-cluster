@@ -7,12 +7,12 @@
     state: present
 
 - name: Add k8s-at-home chart repo.
-  helm_repository:
+  kubernetes.core.helm_repository:
     name: k8s-at-home
     repo_url: "https://k8s-at-home.com/charts/"
 
 - name: Deploy unifi-poller Helm chart.
-  helm:
+  kubernetes.core.helm:
     name: unifi-poller
     chart_ref: k8s-at-home/unifi-poller
     chart_version: "{{ unifi_poller_chart_version }}"
