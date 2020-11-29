@@ -50,8 +50,9 @@ Then, you can deploy _all_ the applications configured in this repository with t
 
      These commands can be consolidated into one `ansible-galaxy install` command once Ansible 2.10 is released.
 
-  3. Copy the `example.hosts.yml` inventory file to `hosts.ymle`. Make sure it has the `main` and `node`s configured correctly.
+  3. Copy the `example.hosts.yml` inventory file to `hosts.yaml`. Make sure it has the `master` and `nodes` configured correctly.
   4. Edit the `ingress_server_ip` in `group_vars/all.yml` and set them each to an IP address of one of the nodes. (Change any other variables in that file as necessary.)
+     If you have Traefik installed,  you can get the Ingress IP by running `make geting`
   5. Run the playbook:
 
      ```bash
