@@ -2,6 +2,7 @@
 [![GitHub](https://img.shields.io/github/license/nicholaswilde/turing-pi-cluster)](https://github.com/nicholaswilde/turing-pi-cluster/blob/main/README.md)
 [![CI](https://github.com/nicholaswilde/turing-pi-cluster/workflows/CI/badge.svg?branch=main&event=push)](https://github.com/nicholaswilde/turing-pi-cluster/actions?query=workflow%3ACI)
 [![Ansible Lint](https://github.com/nicholaswilde/turing-pi-cluster/workflows/Ansible%20Lint/badge.svg?branch=main)](https://github.com/nicholaswilde/turing-pi-cluster/actions?query=workflow%3A%22Ansible+Lint%22)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnicholaswilde%2Fturing-pi-cluster.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnicholaswilde%2Fturing-pi-cluster?ref=badge_shield)
 
 <p align="center"><a href="https://www.youtube.com/watch?v=kgVz4-SEhbE"><img src="images/turing-pi-cluster-hero.jpg?raw=true" width="500" height="auto" alt="Turing Pi - Raspberry Pi Compute Module Cluster" /></a></p>
 
@@ -132,3 +133,7 @@ Now you can go back to the steps above under 'Usage' to set up applications insi
 ## Author
 
 The repository was created in 2020 by [Jeff Geerling](https://www.jeffgeerling.com), who writes [Ansible for DevOps](https://www.ansiblefordevops.com) and [Ansible for Kubernetes](https://www.ansibleforkubernetes.com) and modified by [Nicholas Wilde](https://about.me/nicholas.wilde).
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnicholaswilde%2Fturing-pi-cluster.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnicholaswilde%2Fturing-pi-cluster?ref=badge_large)
