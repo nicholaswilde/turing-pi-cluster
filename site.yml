@@ -9,12 +9,8 @@
   hosts: master
   gather_facts: false
 
-  vars:
-    unifi_poller: false
-    monitoring_namespace: monitoring
-
   collections:
-    - community.kubernetes
+    - kubernetes.core
 
   environment:
     # The location of the kubeconfig file on the master.
@@ -27,13 +23,6 @@
         - setup
         - homebridge
         - transmission
-
-#    - role: unifi_poller
-#      tags: ['unifi-poller']
-#      when: unifi_poller | bool
-
-#    - role: cluster_monitoring
-#      tags: ['monitoring', 'prometheus']
 
     - role: homebridge
       tags: ['homebridge']

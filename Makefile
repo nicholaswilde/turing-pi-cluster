@@ -15,7 +15,6 @@ reset: reset.yml
 
 ## requirements	: Install the requirements
 requirements:
-	ansible-galaxy role install -r requirements.yml --force && \
 	ansible-galaxy collection install -r requirements.yml --force
 
 ## sync		: Sync from the upstream repository
