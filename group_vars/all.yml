@@ -5,17 +5,19 @@ master_ip: "{{ hostvars[groups['master'][0]]['ansible_host'] | default(groups['m
 
 # Set to 'arm64' for a 64-bit OS, or 'arm' for 32-bit.
 helm_arch: arm
-pihole_chart_version: 1.7.20
+
+# Chart versions
+booksonic_chart_version: 0.1.4
+diun_chart_version: 0.1.2
+gotify_chart_version: 0.1.8
 homebridge_chart_version: 1.0.2
-unifi_poller_chart_version: 3.2.1
-installer_chart_version: 0.1.5
-transmission_chart_version: 0.1.5
-diun_chart_version: 0.1.0
-gotify_chart_version: 0.1.5
-booksonic_chart_version: 0.1.0
+installer_chart_version: 0.1.9
+papermerge_chart_version: 0.1.2
+pihole_chart_version: 1.7.20
+transmission_chart_version: 0.1.10
 
 # Turing Pi.
-ingress_server_ip: 192.168.1.201
+ingress_server_ip: 192.168.1.193
 # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone: "America/Los_Angeles"
 

@@ -18,6 +18,7 @@ The following deployments are available in this repository:
   - [Gotify](https://gotify.net/)
   - [Homebridge](https://homebridge.io/)
   - [Installer](https://github.com/jpillora/installer)
+  - [Papermege](https://www.papermerge.com/)
   - [Pi-hole](https://pi-hole.net/)
   - [Transmission](https://transmissionbt.com/)
 
@@ -66,11 +67,12 @@ Once that's done, there will be variety of applications running on your cluster,
 | Software | Address | Notes |
 | -------- | ------- | ------- |
 | Booksonic | http://booksonic.192.168.1.201.nip.io | Default login is `admin/admin` |
-| installer | http://installer.192.168.1.201.nip.io | N/A |
-| Homebridge | http://homebridge.192.168.1.201.nip.io | Default login is `admin/admin` |
 | Gotify | http://gotify.192.168.1.201.nip.io | Default login is `admin/admin` |
-| Transmission | http://homebridge.192.168.1.201.nip.io | Default login is `pirate/hypriot` |
+| Homebridge | http://homebridge.192.168.1.201.nip.io | Default login is `admin/admin` |
+| installer | http://installer.192.168.1.201.nip.io | N/A |
+| Papermerge | http://papermerge.192.168.1.201.nip.io | Default login is `admin/admin` |
 | Pi-hole | http://pi.hole/ | See [pihole role README](./roles/pihole/README.md) |
+| Transmission | http://homebridge.192.168.1.201.nip.io | Default login is `pirate/hypriot` |
 
 The exact URLs will vary in your cluster; refer to the output of the Ansible playbook, which lists each service's exact URL.
 
@@ -136,6 +138,9 @@ Regardless of the reason, here's how to quickly wipe the cluster clean (without 
 Now you can go back to the steps above under 'Usage' to set up applications inside the cluster!
 
 > Important note: Any files that were downloaded for this repository, like the monitoring repository, still exist in the `pirate` (HypriotOS) or `pi` (Raspberry Pi OS) user's home directory. For a more complete reset, also delete all those files and directories. Or to go thermonuclear, re-flash all the Pi's eMMC or microSD cards.
+
+## Todo
+  - [ ] Uncomment Pi-hole
 
 ## Author
 

@@ -24,26 +24,42 @@
         - homebridge
         - transmission
 
-    - role: homebridge
-      tags: ['homebridge']
+    - role: 'repos/k8s-at-home'
+      tags:
+        - homebridge
 
-    - role: transmission
-      tags: ['transmission']
-
-    - role: installer
-      tags: ['installer']
-
-    - role: gotify
-      tags: ['gotify']
-
-    - role: diun
-      tags: ['diun']
+    - role: 'repos/nicholaswilde'
+      tags:
+        - booksonic
+        - diun
+        - gotify
+        - installer
+        - papermerge
+        - transmission
 
     - role: booksonic
       tags: ['booksonic']
 
+    - role: diun
+      tags: ['diun']
+
+    - role: gotify
+      tags: ['gotify']
+
+    - role: homebridge
+      tags: ['homebridge']
+
+    - role: installer
+      tags: ['installer']
+
+    - role: papermerge
+      tags: ['papermerge']
+
 #    - role: pihole
 #      tags: ['pihole']
+
+    - role: transmission
+      tags: ['transmission']
 
     - role: status
       tags:

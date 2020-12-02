@@ -1,31 +1,10 @@
 ---
-- name: Get Ingress records from monitoring namespace.
-  kubernetes.core.k8s_info:
-    api_version: extensions/v1beta1
-    kind: Ingress
-    namespace: monitoring
-  register: monitoring_ingress
-
-- name: Get Ingress records from homebridge namespace.
+- name: Get Ingress records from booksonic namespace.
   k8s_info:
     api_version: extensions/v1beta1
     kind: Ingress
-    namespace: homebridge
-  register: homebridge_ingress
-
-- name: Get Ingress records from transmission namespace.
-  k8s_info:
-    api_version: extensions/v1beta1
-    kind: Ingress
-    namespace: transmission
-  register: transmission_ingress
-
-- name: Get Ingress records from installer namespace.
-  k8s_info:
-    api_version: extensions/v1beta1
-    kind: Ingress
-    namespace: installer
-  register: installer_ingress
+    namespace: booksonic
+  register: booksonic_ingress
 
 - name: Get Ingress records from gotify namespace.
   k8s_info:
@@ -34,38 +13,41 @@
     namespace: gotify
   register: gotify_ingress
 
-- name: Get Ingress records from booksonic namespace.
+- name: Get Ingress records from homebridge namespace.
   k8s_info:
     api_version: extensions/v1beta1
     kind: Ingress
-    namespace: booksonic
-  register: booksonic_ingress
+    namespace: homebridge
+  register: homebridge_ingress
 
-- name: Print monitoring ingress.
+
+- name: Get Ingress records from installer namespace.
+  k8s_info:
+    api_version: extensions/v1beta1
+    kind: Ingress
+    namespace: installer
+  register: installer_ingress
+
+
+- name: Get Ingress records from papermerge namespace.
+  k8s_info:
+    api_version: extensions/v1beta1
+    kind: Ingress
+    namespace: papermerge
+  register: papermerge_ingress
+
+- name: Get Ingress records from transmission namespace.
+  k8s_info:
+    api_version: extensions/v1beta1
+    kind: Ingress
+    namespace: transmission
+  register: transmission_ingress
+
+- name: Print booksonic ingress.
   debug:
     msg:
-      - "http://{{ monitoring_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
-      - "http://{{ monitoring_ingress['resources'][1]['spec']['rules'][0]['host'] }}/"
-      - "http://{{ monitoring_ingress['resources'][2]['spec']['rules'][0]['host'] }}/"
-  when: monitoring_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
-
-- name: Print Homebridge ingress.
-  debug:
-    msg:
-      - "http://{{ homebridge_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
-  when: homebridge_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
-
-- name: Print Transmission ingress.
-  debug:
-    msg:
-      - "http://{{ transmission_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
-  when: transmission_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
-
-- name: Print installer ingress.
-  debug:
-    msg:
-      - "http://{{ installer_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
-  when: installer_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
+      - "http://{{ booksonic_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
+  when: booksonic_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
 
 - name: Print gotify ingress.
   debug:
@@ -73,8 +55,26 @@
       - "http://{{ gotify_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
   when: gotify_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
 
-- name: Print booksonic ingress.
+- name: Print Homebridge ingress.
   debug:
     msg:
-      - "http://{{ booksonic_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
-  when: booksonic_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
+      - "http://{{ homebridge_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
+  when: homebridge_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
+
+- name: Print installer ingress.
+  debug:
+    msg:
+      - "http://{{ installer_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
+  when: installer_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
+
+- name: Print papermerge ingress.
+  debug:
+    msg:
+      - "http://{{ papermerge_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
+  when: papermerge_ingress['resources'][0]['spec']['rules'][0]['host'] is defined
+
+- name: Print Transmission ingress.
+  debug:
+    msg:
+      - "http://{{ transmission_ingress['resources'][0]['spec']['rules'][0]['host'] }}/"
+  when: transmission_ingress['resources'][0]['spec']['rules'][0]['host'] is defined

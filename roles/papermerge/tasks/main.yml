@@ -1,31 +1,33 @@
 ---
-- name: Create transmission namespace.
+- name: Create papermerge namespace.
   k8s:
-    name: transmission
+    name: papermerge
     api_version: v1
     kind: Namespace
     state: present
 
-- name: Deploy transmission Helm chart.
+- name: Deploy papermerge Helm chart.
   kubernetes.core.helm:
-    name: transmission
-    chart_ref: nicholaswilde/transmission
-    chart_version: '{{ transmission_chart_version }}'
-    release_namespace: transmission
+    name: papermerge
+    chart_ref: nicholaswilde/papermerge
+    chart_version: '{{ papermerge_chart_version }}'
+    release_namespace: papermerge
     update_repo_cache: yes
     state: present
     values:
       config:
-        transmission_web_home: "/kettu/"
-        tz: "{{ timezone }}"
+        TZ: "{{ timezone }}"
       persistence:
-        downloads:
+        config:
+          enabled: true
+          storageClass: "{{ storage_class }}"
+        data:
           enabled: true
           storageClass: "{{ storage_class }}"
       ingress:
         enabled: true
         hosts:
-          - host: "transmission.{{ ingress_server_ip }}.nip.io"
+          - host: "papermerge.{{ ingress_server_ip }}.nip.io"
             paths:
               - path: "/"
                 pathType: Prefix
