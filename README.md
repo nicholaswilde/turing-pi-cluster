@@ -146,3 +146,7 @@ Now you can go back to the steps above under 'Usage' to set up applications insi
 ## Author
 
 The repository was created in 2020 by [Jeff Geerling](https://www.jeffgeerling.com), who writes [Ansible for DevOps](https://www.ansiblefordevops.com) and [Ansible for Kubernetes](https://www.ansibleforkubernetes.com) and modified by [Nicholas Wilde](https://about.me/nicholas.wilde).
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnicholaswilde%2Fturing-pi-cluster.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnicholaswilde%2Fturing-pi-cluster?ref=badge_large)
