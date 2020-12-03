@@ -1,6 +1,0 @@
----
-papermerge_chart_version: 0.1.0
-storage_class: "managed-nfs-storage"
-# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone: "America/Los_Angeles"
-ingress_server_ip: 192.168.1.193
